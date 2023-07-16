@@ -7,6 +7,12 @@ class Post {
         return this.readData();
     }
 
+    getIndividualPost(postId) {
+        const posts = this.readData()
+        const post = posts.find((p) => p.id === postId);
+        return post;
+    }
+
     add(newPost) {
         const currentPosts = this.readData();
         currentPosts.unshift(newPost);

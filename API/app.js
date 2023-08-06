@@ -34,6 +34,10 @@ const app = express();
 // Middleware
 // Allow to access json body data from request
 app.use(express.json());
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*")
+  next();
+})
 app.use("/uploads", express.static("uploads"))
 
 /**
